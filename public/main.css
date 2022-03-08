@@ -18,6 +18,9 @@ body {
 	font-family: monospace;
 	color: white;
 	border: 2px solid black;
+	text-decoration: none;
+	text-align: center;
+	padding-top: calc(50% - 1em);
 }
 #games {
 	background-image: linear-gradient(#B5FFD5, #9BFFC6);
@@ -34,6 +37,9 @@ body {
 	font-family: monospace;
 	color: white;
 	border: 2px solid black;
+	text-decoration: none;
+	text-align: center;
+	padding-top: calc(50% - 1em);
 }
 #games:hover {
 	font-size: 70px;
