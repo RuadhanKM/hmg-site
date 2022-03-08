@@ -1,5 +1,4 @@
 const express = require('express')
-const _ = require('lodash')
 const fs = require('fs')
 const os = require('os')
 
@@ -15,6 +14,10 @@ tanksws.main(hostname)
 
 app.use('/chat', express.static("C:/Users/9281239/Documents/js/chat-room-2/public"))
 app.use('/games', express.static("C:/Users/9281239/Documents/js/games/public"))
+
+app.get('/tonl', (req, res) => {
+	res.redirect("/games/tanks-online/?ip="+req.query.ip)
+})
 
 app.use('/', express.static("public"))
 
