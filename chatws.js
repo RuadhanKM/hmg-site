@@ -102,6 +102,10 @@
 				var data = xssProtection(JSON.parse(rawdata))
 				if (!data) {return}
 				
+				if (data[2]) { // if is an image embed
+					data[1] = '<img src="' + data[1] + '" style="max-width:400px;width:100%;max-height:400px;height:100%;" />'
+				}
+				
 				var ip = ws._socket.remoteAddress.slice(7)
 				var name = data[0]
 				
@@ -111,7 +115,7 @@
 				}
 
 				// if data is a message
-				if (data.length == 2) {
+				if (data.length >= 2) {
 					var message = data[1]
 					var color = getColor(ip)
 					
@@ -123,7 +127,11 @@
 					messageObj.message = message
 					messageObj.color = color
 					
-					console.log(name + ": " + message)
+					if (data.length == 2) {
+						console.log(name + ": " + message)
+					} else if (data.length == 3) {
+						console.log(name + ": " + data[2])
+					}
 					
 					// handle server commands
 					if (message.slice(0,2) == "//" && ip == hostname) {
