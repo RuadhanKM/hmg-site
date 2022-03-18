@@ -103,7 +103,7 @@
 				if (!data) {return}
 				
 				if (data[2]) { // if is an image embed
-					data[1] = '<img src="' + data[1] + '" style="max-width:400px;width:100%;max-height:400px;height:100%;" />'
+					data[1] = '<img src="' + data[1] + '" style="max-width:50vh;max-height:50vh;" />'
 				}
 				
 				var ip = ws._socket.remoteAddress.slice(7)
